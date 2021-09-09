@@ -35,7 +35,7 @@
             // Your username is (CWL_ID) and the password is a(student number). For example, 
 			      // platypus is the username and a12345678 is the password.
 
-            $db_conn= new mysqli("dbserver.students.cs.ubc.ca", "andreasy", "a18412817", "andreasy");
+            $db_conn= new mysqli("dbserver.students.cs.ubc.ca", "username", "password", "username");
             if ($db_conn->connect_error) {
                 debugAlertMessage('Connect Failed' . $db_conn->connect_error);
                 console_log("false");
@@ -59,7 +59,7 @@
         #POST REQUESTS
         function handleUserLoginRequest() { // complete
             global $db_conn;
-            mysqli_select_db($db_conn, 'andreasy');
+            mysqli_select_db($db_conn, 'username');
             
             $account_id = $_POST['account_id'];
             $phn = $_POST['phn'];
@@ -78,7 +78,7 @@
 
         function handleRegisterRequest() { // complete
             global $db_conn;
-            mysqli_select_db($db_conn, 'andreasy');
+            mysqli_select_db($db_conn, 'username');
 
             $account_id = $_POST['account_id'];
             $vaccination_status = $_POST['vaccination_status'];
@@ -108,7 +108,7 @@
 
         function handleOfficialLoginRequest() { // complete
             global $db_conn;
-            mysqli_select_db($db_conn, 'andreasy');
+            mysqli_select_db($db_conn, 'username');
             
             $eid = $_POST['eid'];
 
@@ -125,7 +125,7 @@
 
         function handleWorkerLoginRequest() { // complete
             global $db_conn;
-            mysqli_select_db($db_conn, 'andreasy');
+            mysqli_select_db($db_conn, 'username');
 
             $eid = $_POST['eid'];
 
@@ -142,7 +142,7 @@
 
         function handleViewVaccineRequest() {  // c
             global $db_conn;
-            mysqli_select_db($db_conn, 'andreasy');
+            mysqli_select_db($db_conn, 'username');
 
             $vacc_name = $_POST['vacc_name'];
             $result = executePlainSQL("SELECT Count(*) AS num FROM Workers_ReportingTo_Officials WHERE vaccinated_name = '$vacc_name' GROUP BY vaccinated_name");
@@ -154,7 +154,7 @@
 
         function handleReplenishRequest() { // complete
             global $db_conn;
-            mysqli_select_db($db_conn, 'andreasy');
+            mysqli_select_db($db_conn, 'username');
 
             $vacc_name = $_POST['vacc_name'];
             // UPDATE DATABASE
@@ -171,7 +171,7 @@
     
         function handleNotifyNewsRequest() { // complete
             global $db_conn;
-            mysqli_select_db($db_conn, 'andreasy');
+            mysqli_select_db($db_conn, 'username');
 
             $news_name = $_POST['news_name'];
             $vacc_num = $_POST['vacc_num'];
@@ -195,7 +195,7 @@
 
         function handleUpdateAccountRequest() {
             global $db_conn;
-            mysqli_select_db($db_conn, 'andreasy');
+            mysqli_select_db($db_conn, 'username');
 
             $aid = $_POST['aid'];
             $vacc_name = $_POST['vacc_name'];
@@ -229,7 +229,7 @@
     //     // and display the building name in vaccineLocations_AtAddress associated with it
     //     function handleFindBusyRequest() {
     //         global $db_conn;
-    //         mysqli_select_db($db_conn, 'andreasy');
+    //         mysqli_select_db($db_conn, 'username');
             
             
 
